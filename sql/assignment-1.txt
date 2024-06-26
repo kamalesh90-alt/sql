@@ -1,0 +1,116 @@
+ 
+
+ 
+ 
+ create table if not exists movies  (
+ movie_id int,
+ movie_name varchar(255),
+ movie_type varchar(255),
+ movie_rating varchar(255),
+ primary Key(movie_id,movie_name)
+ );
+ 
+ 
+
+ 
+ create table company (
+ company_id int,
+ trade varchar(255) not null,
+ number_of_employees int not null default 0,
+ primary key(company_id)
+ );
+
+
+ 
+ 
+ create table job_offer (
+ offer_id int primary key,
+ offer_title varchar(255) default ' ',
+ offer_min_salary varchar(255) default 5000,
+ offer_max_salary varchar(255),
+ company_id int,
+ foreign key(company_id) references company(company_id)
+
+ );
+ 
+ 
+
+
+rename table movies to movies_renamed
+
+
+
+alter table movies_renamed
+add column movie_director varchar(255);
+
+
+
+alter table movies_renamed
+add column id int first;
+
+
+
+alter table movies_renamed
+add column movie_description varchar(255) after movie_name;
+
+
+alter table movies_renamed
+modify movie_rating int;
+
+
+alter table movies_renamed
+drop column movie_director;
+
+
+
+
+alter table movies_renamed
+drop primary key;
+
+
+alter table movies_renamed
+add primary key(movie_id);
+
+
+alter table job_offer
+rename column company_id to fk_candidate_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

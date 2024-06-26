@@ -1,0 +1,94 @@
+find the structure of the data employees
+desc employees
+
+display all columns and all rows data for the table employees
+select * from employees;
+
+
+display only firstname and lastname
+select firstname,lastname from employees;
+
+display fullname from employee;
+select  concat(firstname," ",lastname)as fullname from employees;
+
+
+display current date and time
+select now() datetime;
+
+display current date only
+select current_date() date;
+
+
+display city,country,phone,officecode from offices in desc order
+select city,country,phone,officecode from offices order by country desc , city desc;
+
+display city,country,phone,officecode from offices in asc order
+
+select city,country,phone,officecode from offices order by country desc , city asc;
+
+
+
+select ordernumber,quantityordered,priceeach,priceeach=quantityordered "totalprice" from orderdetails order by priceeach *priceeach desc
+    -> limit 22;
+	
+	 display distinct status from orders table
+
+select distinct status from orders;
+
+
+
+select ordernumber,status from orders
+order by field(status,'in process','on hold','cancelled','resolved','disputed','shipped')
+limit 30;
+
+
+select ordernumber,status from orders
+where status="In Process";
+
+
+
+filtering can be achieved in 
+
+
+
+
+
+display all the employees who has job title sales rep firstname lastname jobtitle
+ firstname,lastname,jobtitle from employees where jobtitle ='sales rep';
+ 
+ sorting.....
+ order by asc,desc,fields
+ limit
+ 
+ filtering
+ where:
+ comparison operatore=,<,>,<=,>=, !=
+ logical operatore= and,or,not
+ other operatore= in,not in, is null, is not null like,not like,between
+ 
+ aggregation(grouping)
+ count(*)
+ select count(*) from customers;
+ select count(*) from products; 
+ desc orderdetails;
+  select max(quantityordered) from orderdetails;
+  select max(quantityordered),max(priceeach) from orderdetails;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ display all the products whose productname start with the word america
+ 
+ select productname from products where productname like 'america%';
+ 
+ 
+ display all the employees whose firstname start with m and ends with no
+ select firstname,lastname from employees where firstname like 'm%n';
+ 
+ 
+ 
+ 
+ 

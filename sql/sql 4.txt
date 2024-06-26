@@ -1,0 +1,71 @@
+select productcode,productname,textdescription
+from products p
+inner join productlines pl
+on p.productline = pl.productline
+
+
+
+select employee_id,first_name,last_name,department_name
+from departments d
+inner join employee e
+on d.department_id=e.department_id
+
+
+
+
+select o1.ordernumber,o1.status,
+    ->     -> sum(quantityordered*priceeach) total
+    ->     -> from orsers o1
+    ->     -> inner join orderdetails o2
+    ->     -> on o1.orsernumber=o2.ordernumber
+    ->     -> group by o1.ordernumber
+   
+   
+   
+   
+   select ordernumber,
+   orderdate,
+   productname,
+   quantityordered,
+   priceeach
+   from orders
+   inner join orderdetails using(ordernumber)
+  inner join products using(productcode)
+    inner join customers using (customernumber)
+	where customername like 'a%'
+	and quantityordered>50
+   order by ordernumber,orderlinenumber
+   limit 20;
+   
+   
+   
+   
+   
+   select c.customerNumber,customerName,orderNumber,status
+   from customers c 
+   left join orders o
+   on c.customerNumber=o.customerNumber
+   AND customerNumber=125;
+   
+   
+   
+   select employeenumber,customernumber
+   from customers
+   right join employees
+   onsalesrepEmployeenumber=employeenumber
+   order by salesrepEmployeenumber desc;
+   
+   
+   
+   
+   select concat (m.lastname," ",m.firstname) "Manager",
+   concat (e.lastname," ",m.firstname) "Employee"
+   from 
+   employees e 
+   inner join 
+   employees m on 
+   m.employeenumber = e.reportsto
+   order by manager
+   
+   
+   select e.*, d.* from employee e,departments data

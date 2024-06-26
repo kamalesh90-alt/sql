@@ -1,0 +1,60 @@
+| Mami      | Nishi     |
+| Yoshimi   | Kato      |
+| Martin    | Gerard    |
++-----------+-----------+
+21 rows in set (0.02 sec)
+
+mysql> select firstname,lastname from employees where firstname not  like '___y':
+    -> select firstname,lastname from employees where firstname not  like '___y';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':
+select firstname,lastname from employees where firstname not  like '___y'' at line 1
+mysql> select firstname,lastname from employees where firstname like '___y';
++-----------+-----------+
+| firstname | lastname  |
++-----------+-----------+
+| Mary      | Patterson |
+| Andy      | Fixter    |
++-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select productname,productcode from products where productname like'a%';
++--------------------------------+-------------+
+| productname                    | productcode |]
++--------------------------------+-------------+
+| American Airlines: B767-300    | S700_1691   |
+| America West Airlines B757-200 | S700_2466   |
+| ATA: B757-300                  | S700_2834   |
+| American Airlines: MD-11S      | S700_4002   |
++--------------------------------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select productname,productcode from products where productcode like'%__20';
++---------------------------+-------------+
+| productname               | productcode |
++---------------------------+-------------+
+| 1917 Maxwell Touring Car  | S18_3320    |
+| 1937 Horch 930V Limousine | S24_3420    |
+| 1961 Chevrolet Impala     | S24_4620    |
++---------------------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select productname,productcode from products where productcode like'%20';
++---------------------------+-------------+
+| productname               | productcode |
++---------------------------+-------------+
+| 1917 Maxwell Touring Car  | S18_3320    |
+| 1937 Horch 930V Limousine | S24_3420    |
+| 1961 Chevrolet Impala     | S24_4620    |
++---------------------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select productname,productcode from products where productcode like'%\_20%';
++-------------------------------------------+-------------+
+| productname                               | productcode |
++-------------------------------------------+-------------+
+| 1996 Moto Guzzi 1100i                     | S10_2016    |
+| 1960 BSA Gold Star DBD34                  | S24_2000    |
+| 18th century schooner                     | S24_2011    |
+| 1938 Cadillac V-16 Presidential Limousine | S24_2022    |
+| HMS Bounty                                | S700_2047   |
++-------------------------------------------+-------------+

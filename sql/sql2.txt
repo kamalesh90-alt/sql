@@ -1,0 +1,29 @@
+create table taskt (
+id int auto_increment primary key,
+title varchar(255) not null,
+start_date date,
+due_date date,
+priority tinyint not null default 3,
+description text
+);
+insert into taske (title,priority) values
+('learn mysql insert statement',1);
+
+
+
+insert into taskt values(2,'insaert statement without column','2024-06-1','2024-06-2',2,'the sequence should be maintained whenever we are using the insert \n without specifying the column names');
+
+
+
+insert into taskt
+(title,start_date,due_date)
+values("insert with default value of priority",'2024-06-24','2024-06-25');
+
+insert into taskt
+(title,start_date,due_date)
+values("insert using current date in the tasks",current_date()-20,current_date());
+
+
+insert into taskt(title,priority)
+values('do prestudy',1),
+('do requirement gathering',1),('prepare srs',2),('signoff requirements',3);
